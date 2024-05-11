@@ -1,0 +1,13 @@
+name: flux-build
+on:
+- pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
+    - uses: docker://ghcr.io/doodlescheduling/flux-build:v0
+      env:
+        PATHS: ./flux-system/
+        OUTPUT: /dev/null
